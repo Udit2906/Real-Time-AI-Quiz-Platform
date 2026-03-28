@@ -10,7 +10,7 @@ function CreateQuiz({ onQuizCreated }) {
     if (!prompt) return alert("Please enter a topic!");
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:4000/quiz/create', { prompt });
+      const res = await axios.post('https://real-time-ai-quiz-platform.onrender.com/quiz/create', { prompt });
       // The backend returns the full quiz object
       onQuizCreated(res.data.id || res.data.quizId); 
     } catch (err) {

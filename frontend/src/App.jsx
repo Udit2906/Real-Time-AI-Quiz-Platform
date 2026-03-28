@@ -5,7 +5,7 @@ import html2pdf from 'html2pdf.js';
 import CreateQuiz from './components/CreateQuiz';
 import Leaderboard from './components/Leaderboard';
 
-const socket = io("http://localhost:4000");
+const socket = io("https://real-time-ai-quiz-platform.onrender.com");
 
 function App() {
   const [quizId, setQuizId] = useState('');
@@ -22,7 +22,7 @@ function App() {
     if (!quizId || !studentId) return alert("Please enter both an ID and your Name!");
     
     try {
-      const res = await axios.get(`http://localhost:4000/quiz/${quizId}`);
+      const res = await axios.get(`https://real-time-ai-quiz-platform.onrender.com/quiz/${quizId}`);
       setQuiz(res.data);
       setJoined(true);
       setTimeLeft(60); 
@@ -38,7 +38,7 @@ function App() {
     }));
 
     try {
-      const res = await axios.post(`http://localhost:4000/attempt/${quizId}/submit`, {
+      const res = await axios.post(`https://real-time-ai-quiz-platform.onrender.com/attempt/${quizId}/submit`, {
         studentId,
         answers: formattedAnswers
       });
