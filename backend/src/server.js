@@ -29,6 +29,6 @@ io.on("connection", (socket) => {
 app.set("io", io);
 
 const PORT = process.env.PORT || 4000;
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`🚀 Real-time Server running on port ${PORT}`);
 });
